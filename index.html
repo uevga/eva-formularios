@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVA - Evaluaciones</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .section-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            background: white;
+            border: none;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            color: #1e3c72;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background: #f8f9fa;
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .btn.eva {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .btn.nee {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+
+        .btn.eva:hover {
+            background: linear-gradient(135deg, #3a9cfe 0%, #00d4e8 100%);
+        }
+
+        .btn.nee:hover {
+            background: linear-gradient(135deg, #f857a6 0%, #ffd86b 100%);
+        }
+
+        .btn small {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-top: 5px;
+            font-weight: normal;
+        }
+
+        .info-box {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .info-box h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .info-box p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer {
+            color: white;
+            text-align: center;
+            margin-top: 40px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Animación para los botones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .btn:nth-child(1) { animation-delay: 0.1s; }
+        .btn:nth-child(2) { animation-delay: 0.2s; }
+        .btn:nth-child(3) { animation-delay: 0.3s; }
+        .btn:nth-child(4) { animation-delay: 0.4s; }
+        .btn:nth-child(5) { animation-delay: 0.5s; }
+        .btn:nth-child(6) { animation-delay: 0.6s; }
+        .btn:nth-child(7) { animation-delay: 0.7s; }
+        .btn:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .buttons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 15px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📚 EVA - Evaluaciones</h1>
+        <p>Selecciona el formulario correspondiente a tu evaluación</p>
+    </div>
+
+    <div class="container">
+        <!-- Sección EVA Regular -->
+        <h2 class="section-title">Evaluaciones EVA</h2>
+        <div class="buttons-grid">
+            <button class="btn eva" onclick="abrirFormulario('https://docs.google.com/forms/d/e/1FAIpQLS.../viewform')">
+                <span class="icon">📐</span>
+                <span>EVA de Matemáticas</span>
+                <small>Formulario de evaluación</small>
+            </button>
+            
+            <button class="btn eva" onclick="abrirFormulario('https://docs.google.com/forms/d/e/1FAIpQLS.../viewform')">
+                <span class="icon">📖</span>
+                <span>EVA de Lengua y Literatura</span>
+                <small>Formulario de evaluación</small>
+            </button>
+            
+            <button class="btn eva" onclick="abrirFormulario('https://docs.google.com/forms/d/e/1FAIpQLS.../viewform')">
+                <span class="icon">📜</span>
+                <span>EVA de Historia</span>
+                <small>Formulario de evaluación</small>
+            </button>
+            
+            <button class="btn eva" onclick="abrirFormulario('https://docs.google.com/forms/d/e/1FAIpQLS.../viewform')">
+                <span class="icon">🧪</span>
+                <span>EVA de Química</span>
+                <small>Formulario de evaluación</small>
+            </button>
+        </div>
+
+        <!-- Sección EVA NEE -->
+        <h2 class="section-title">Evaluaciones EVA NEE</h2>
+        <div class="buttons-grid">
+            <button class="btn nee" onclick="abrirFormulario('https://docs.google.com/forms/d/e/1FAIpQLS.../viewform')">
+                <span class="icon">🧮</span>
+                <span>EVA NEE de Matemáticas</span>
+                <small>Evaluación con apoyos</small>
+            </button>
+            
+            <button class="btn nee" onclick="abrirFormulario('https://docs.google.com/forms/d/e/1FAIpQLS.../viewform')">
+                <span class="icon">📚</span>
+                <span>EVA NEE de Lengua y Literatura</span>
+                <small>Evaluación con apoyos</small>
+            </button>
+            
+            <button class="btn nee" onclick="abrirFormulario('https://docs.google.com/forms/d/e/1FAIpQLS.../viewform')">
+                <span class="icon">🏛️</span>
+                <span>EVA NEE de Historia</span>
+                <small>Evaluación con apoyos</small>
+            </button>
+            
+            <button class="btn nee" onclick="abrirFormulario('https://docs.google.com/forms/d/e/1FAIpQLS.../viewform')">
+                <span class="icon">⚗️</span>
+                <span>EVA NEE de Química</span>
+                <small>Evaluación con apoyos</small>
+            </button>
+        </div>
+
+        <div class="info-box">
+            <h3>💡 Instrucciones</h3>
+            <p>1. Haz clic en el botón correspondiente a tu evaluación<br>
+            2. Se abrirá el formulario en una nueva pestaña<br>
+            3. Completa el formulario con tus respuestas<br>
+            4. Presiona "Enviar" al finalizar</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Plataforma de Evaluaciones EVA • Sistema de Aprendizaje</p>
+    </div>
+
+    <script>
+        function abrirFormulario(url) {
+            // Verificar que la URL sea válida
+            if (url && url.includes('docs.google.com/forms')) {
+                // Abrir en nueva pestaña
+                window.open(url, '_blank');
+            } else {
+                // Si no hay URL configurada, mostrar mensaje
+                alert('⚠️ Por favor, configura la URL del formulario en el código HTML.\n\nBusca la línea:\nonclick="abrirFormulario(\'https://docs.google.com/forms/d/e/1FAIpQLS.../viewform\')"');
+            }
+        }
+
+        // Función para configurar todas las URLs
+        function configurarURLs() {
+            // Aquí puedes configurar las URLs reales de tus formularios
+            // Ejemplo:
+            // const urls = {
+            //     'eva-matematicas': 'https://docs.google.com/forms/d/e/1FAIpQLS.../viewform',
+            //     'eva-lengua': 'https://docs.google.com/forms/d/e/1FAIpQLS.../viewform',
+            //     // ... etc
+            // };
+            
+            // Para usar esta función, necesitarías modificar el HTML para usar IDs
+            // y luego llamar a esta función al hacer clic
+        }
+
+        // Al cargar la página, verificar si hay URLs configuradas
+        window.onload = function() {
+            console.log('Página de formularios EVA cargada correctamente');
+            console.log('Recuerda configurar las URLs de los formularios de Google');
+        };
+    </script>
+</body>
+</html>
